@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace src
 {
@@ -6,13 +7,19 @@ namespace src
   {
     static void Main(string[] args)
     {
-      var numbers = new [] {3,12.2,56.3};
+      var numbers = new[] { 3, 12.2, 56.3 };
+      var grades = new List<double>() { 3, 12.2, 56.3 };
+      grades.Add(9.8);
+    //   grades.Count;
       var result = 0.0;
-      
-      foreach (double number in numbers)
+
+      foreach (double number in grades)
       {
-          
+        result += number;
       }
+      Console.WriteLine(result);
+      var average = result / grades.Count;
+      Console.WriteLine(average);
 
       if (args.Length > 0)
       {
