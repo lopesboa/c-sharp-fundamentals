@@ -7,7 +7,7 @@ namespace src
   {
     static void Main(string[] args)
     {
-      var numbers = new[] { 3, 12.2, 56.3 };
+    //   var numbers = new[] { 3, 12.2, 56.3 };
       var grades = new List<double>() { 3, 12.2, 56.3 };
       grades.Add(9.8);
     //   grades.Count;
@@ -18,8 +18,8 @@ namespace src
         result += number;
       }
       Console.WriteLine(result);
-      var average = result / grades.Count;
-      Console.WriteLine(average);
+      result /= grades.Count;
+      Console.WriteLine($"The avarage grade is {result:N2}");
 
       if (args.Length > 0)
       {
