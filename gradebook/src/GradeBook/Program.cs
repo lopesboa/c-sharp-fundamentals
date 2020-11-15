@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace GradeBook
 {
@@ -11,7 +10,11 @@ namespace GradeBook
       book.AddGrade(89.3);
       book.AddGrade(90.5);
       book.AddGrade(77.5);
-      book.ShowStatistics();
+      var stats = book.GetStatistics();
+
+      Console.WriteLine($"The lowest grade is {stats.Low}");
+      Console.WriteLine($"The highest grade is {stats.High}");
+      Console.WriteLine($"The avarage grade is {stats.Avarage:N1}");
     }
   }
 }
