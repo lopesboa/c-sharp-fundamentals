@@ -13,11 +13,11 @@ namespace GradeBook.Tests
 
       Assert.Equal(42, x);
     }
-    [Fact]
+    [Fact(DisplayName = "CSharpCanPassByRef")]
     public void CSharpCanPassByRef()
     {
       var book1 = GetBook("Book 1");
-      GetBookAndSetNameByRef(ref book1, "New book");
+      GetBookAndSetNameByRef(out book1, "New book");
 
       Assert.Equal("New book", book1.Name);
     }
@@ -58,6 +58,15 @@ namespace GradeBook.Tests
       Assert.Same(book1, book2);
       Assert.True(Object.ReferenceEquals(book1, book2));
     }
+    [Fact]
+    public void StringsBehaveLikeValueTypes()
+    {
+      string name = "Lopes";
+      var upper = MakeUpperCase(name);
+
+      Assert.Equal("Lopes", name);
+      Assert.Equal("LOPES", upper);
+    }
 
     Book GetBook(string name)
     {
@@ -80,9 +89,13 @@ namespace GradeBook.Tests
     {
       return 3;
     }
-    private void SetInt(out int x)
+    private void SetInt(ref int x)
     {
       x = 42;
+    }
+    private string MakeUpperCase(string parameter)
+    {
+      return parameter.ToUpper();
     }
   }
 }
