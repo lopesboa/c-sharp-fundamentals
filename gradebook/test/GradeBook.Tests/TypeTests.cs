@@ -9,15 +9,15 @@ namespace GradeBook.Tests
     public void ValueTypesAlsoPassByValue()
     {
       var x = GetInt();
-      SetInt(x);
+      SetInt(ref x);
 
-      Assert.Equal(3, x);
+      Assert.Equal(42, x);
     }
     [Fact]
     public void CSharpCanPassByRef()
     {
       var book1 = GetBook("Book 1");
-      GetBookAndSetNameByRef(out book1, "New book");
+      GetBookAndSetNameByRef(ref book1, "New book");
 
       Assert.Equal("New book", book1.Name);
     }
@@ -80,7 +80,7 @@ namespace GradeBook.Tests
     {
       return 3;
     }
-    private void SetInt(int x)
+    private void SetInt(out int x)
     {
       x = 42;
     }
