@@ -16,7 +16,7 @@ namespace GradeBook
       {
         grades.Add(grade);
       }
-      else 
+      else
       {
         Console.WriteLine("Invalid value");
       }
@@ -29,11 +29,39 @@ namespace GradeBook
       result.High = double.MinValue;
       result.Low = double.MaxValue;
 
-      foreach (var grade in grades)
+
+      //FOREACH
+      // var index = 0;
+      // foreach (var grade in grades)
+      // {
+      //   result.Low = Math.Min(grade, result.Low);
+      //   result.High = Math.Max(grade, result.High);
+      //   result.Avarage += grade;
+      // }
+
+      // WHILE & DO LOOP
+      // do
+      // {
+      //   result.Low = Math.Min(grades[index], result.Low);
+      //   result.High = Math.Max(grades[index], result.High);
+      //   result.Avarage += grades[index];
+      //   index++;
+      // } while(index < grades.Count);
+
+      // while (index < grades.Count)
+      // {
+      //   result.Low = Math.Min(grades[index], result.Low);
+      //   result.High = Math.Max(grades[index], result.High);
+      //   result.Avarage += grades[index];
+      //   index++;
+      // }
+
+      //FOR LOOP
+      for (var index = 0; index < grades.Count; index++)
       {
-        result.Low = Math.Min(grade, result.Low);
-        result.High = Math.Max(grade, result.High);
-        result.Avarage += grade;
+        result.Low = Math.Min(grades[index], result.Low);
+        result.High = Math.Max(grades[index], result.High);
+        result.Avarage += grades[index];
       }
       result.Avarage /= grades.Count;
 
