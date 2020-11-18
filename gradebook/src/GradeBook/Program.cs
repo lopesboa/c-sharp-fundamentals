@@ -15,13 +15,29 @@ namespace GradeBook
       {
         Console.WriteLine("Insert a grade or press 'q' to quit");
         var input = Console.ReadLine();
-        if(input == "q") 
+        if (input == "q")
         {
           done = true;
           continue;
         }
-        var grade = double.Parse(input);
-        book.AddGrade(grade);
+
+        try
+        {
+          var grade = double.Parse(input);
+          book.AddGrade(grade);
+        }
+        catch (ArgumentException ex)
+        {
+          Console.WriteLine(ex.Message);
+        }
+        catch (FormatException ex)
+        {
+          Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+          Console.WriteLine("**");
+        }
       }
 
       var stats = book.GetStatistics();
