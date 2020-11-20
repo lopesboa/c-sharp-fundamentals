@@ -112,20 +112,24 @@ namespace GradeBook
     private List<double> grades;
 
     //Long hand syntax
-    public string Name
-    {
-      get
-      {
-        return name;
-      }
+    // public string Name
+    // {
+    //   get
+    //   {
+    //     return name;
+    //   }
 
-      set
-      {
-        if (!string.IsNullOrEmpty(value))
-        {
-          name = value;
-        }
-      }
+    //   set
+    //   {
+    //     if (!string.IsNullOrEmpty(value))
+    //     {
+    //       name = value;
+    //     }
+    //   }
+    // }
+
+    public string Name {
+      get; set;
     }
     private string name;
   }
