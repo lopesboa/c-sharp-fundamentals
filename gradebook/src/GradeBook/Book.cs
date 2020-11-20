@@ -9,7 +9,6 @@ namespace GradeBook
     {
       grades = new List<double>();
       Name = name;
-      categoty = "";
     }
 
     public void AddLetterGrade(char letter)
@@ -135,6 +134,8 @@ namespace GradeBook
       get; set;
     }
 
-    readonly string categoty = "Science";
+    // readonly string category = "Science";
+    public const string CATEGORY = "Science";
+
   }
 }
