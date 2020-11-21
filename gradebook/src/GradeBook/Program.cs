@@ -8,9 +8,6 @@ namespace GradeBook
     {
       var book = new Book("Lopes Grade Book");
       book.GradeAdded += OnGradeAdded;
-      book.GradeAdded += OnGradeAdded;
-      book.GradeAdded -= OnGradeAdded;
-      book.GradeAdded += OnGradeAdded;
 
       var done = false;
       while (!done)
