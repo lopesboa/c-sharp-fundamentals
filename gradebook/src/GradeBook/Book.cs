@@ -6,9 +6,23 @@ namespace GradeBook
 
   public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-  public class Book
+
+  public class NameObject
   {
-    public Book(string name)
+    public NameObject(string name)
+    {
+      Name = name;
+    }
+    public string Name
+    {
+      get;
+      set;
+    }
+  }
+
+  public class Book : NameObject
+  {
+    public Book(string name) : base(name)
     {
       grades = new List<double>();
       Name = name;
@@ -37,7 +51,7 @@ namespace GradeBook
       if (grade <= 100 && grade >= 0)
       {
         grades.Add(grade);
-        if(GradeAdded != null)
+        if (GradeAdded != null)
         {
           GradeAdded(this, new EventArgs());
         }
@@ -137,11 +151,6 @@ namespace GradeBook
     // }
 
     private string name;
-    public string Name
-    {
-      get; set;
-    }
-
     // readonly string category = "Science";
     public const string CATEGORY = "Science";
 
